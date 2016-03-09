@@ -1,0 +1,13 @@
+  	My proposed project will be to develop a web application that allows you to manage photos. 
+	A user will be able to upload and download their photos as well as organize and edit them.  
+	There already exist tools that allow a user to store photos but the ability to edit them is lacking. 
+	Putting an emphasis on editing functionality will help make this project more innovative than some other existing systems. 
+	For example, Adding the ability to crop and rotate photos and change filters like sepia or gray scale.  
+	The project will be written using the Ruby programming language.  The algorithms being used in this project are involved
+	with creating many different filters as well as sorting the photos.  Creating filters, managing a database, and file 
+	conversions are some of the new concepts that I will learn from this project.  In order to create a bigger toolkit for
+	editing I will need to explore different editing techniques like filtering.  I will need to have a place to store and 
+	manage all of the uploaded photos so utilizing a database is a something new.  Learning how to change the formatting of 
+	pictures for downloading will be beneficial if a user wants to conserve space with a more compressed file type.  
+	This project is a web based photo management and editing application.  This will allow users to store, organize, 
+	download, and edit their own photos.
