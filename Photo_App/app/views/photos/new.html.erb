@@ -1,0 +1,27 @@
+<h1>Upload a new photo</h1>
+<p>Please choose a file to upload and enter a reference name for your photo.</p>
+
+<%# Prints error messages if input is invalid %>
+<% if !@photo.errors.empty? %>
+	<div class = "alert alert-error">
+
+		<ul>
+			<% @photo.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+		</ul>	
+
+	</div>
+<% end %>
+
+       <%# Creates a form for uploading a photo %>
+<div class= "well">
+	<%= form_for @photo, html: { multipart: true } do |f| %>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+		<%= f.label :attachment %>
+		<%= f.file_field :attachment %>
+		<%= f.submit "Save", class: "btn btn-primary" %>
+	<% end %>
+
+</div>
