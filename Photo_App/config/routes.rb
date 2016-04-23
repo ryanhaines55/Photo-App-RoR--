@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
-  #get 'photos/index'
+ 
+  get 'photos/index' 
 
-  #get 'photos/new'
+  get 'photos/new'
 
-  #get 'photos/create'
+  get 'photos/create'
 
-  #get 'photos/destroy'
+  get 'photos/destroy'
+
+  get 'photos/edit'
   
-resources :photos, only: [:index, :new, :create, :destroy]
+resources :photos, only: [:index, :new, :create, :destroy, :edit]
 
 
   # The priority is based upon order of creation: first created -> highest priority.

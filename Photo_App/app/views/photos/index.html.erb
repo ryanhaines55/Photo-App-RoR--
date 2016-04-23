@@ -8,16 +8,15 @@
 
 <br />
 
-
 <br />
          <%# Photo table. Class specified by bootstrap gem %>
 <table class = "table table-bordered table striped">
 	<thead>
 		<tr>
-			<th>Name</th>
+			<th><%= link_to "Name", :sort => "name" %></th>
 			<th>Image</th>
-			<th>Download Link</th>
-			<th></th>
+			<th>Edit</th>
+			<th>Delete</th>
 		</tr>
 	</thead>
 
@@ -26,9 +25,10 @@
 
 			<tr>
 				<td><%= photo.name %></td>
-				<td><%= photo.attachment_url %></td>
-				<td><%= link_to "Download Photo", photo.attachment_url %></td>
-				<td><%= button_to "Delete", photo, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{photo.name}?" %></td>
+				<td><%= link_to image_tag(photo.attachment_url, size: "100"), 
+						photo.attachment_url %></td>
+				<td><%= link_to "Edit", edit_photo_path(photo.id)  %></td>
+				<td><%= link_to "Delete", photo, method: :delete, data: { confirm: "Are you sure you want to delete #{photo.name}?"}, class: "btn btn-danger"%></td>
 			</tr>
 
 		<% end %>

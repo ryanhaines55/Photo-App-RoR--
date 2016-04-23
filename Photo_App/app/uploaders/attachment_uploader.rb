@@ -1,5 +1,7 @@
 # encoding: utf-8
 
+# * * * All written by CarrierWave Gem * * *
+
 class AttachmentUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
@@ -16,10 +18,7 @@ class AttachmentUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
   
-  # Allows for the following formats only
-  def extension_white_list
-    %w(jpeg png jpg)
-  end
+  
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
@@ -43,9 +42,9 @@ class AttachmentUploader < CarrierWave::Uploader::Base
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-  # def extension_white_list
-  #   %w(jpg jpeg gif png)
-  # end
+   def extension_white_list
+     %w(jpg jpeg png)
+   end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
