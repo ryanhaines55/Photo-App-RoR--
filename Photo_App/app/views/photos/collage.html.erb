@@ -1,0 +1,6 @@
+<h1>Collage </hl>
+<br>
+<%= link_to "Photos", photos_path %>
+<% @photos.each do |photo| %>
+<%= image_tag(photo.attachment_url) %>
+<% end %>

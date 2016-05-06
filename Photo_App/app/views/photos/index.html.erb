@@ -14,7 +14,7 @@
 	<thead>
 		<tr>
 			<th><%= link_to "Name", :sort => "name" %></th>
-			<th>Image</th>
+			<th>Image (Click to show full screen)</th>
 			<th>Edit</th>
 			<th>Delete</th>
 		</tr>
@@ -38,5 +38,5 @@
 
 <br /> <%# Goes to page to upload photos%>
 <%= link_to "New Photo", new_photo_path, class: "btn btn-primary" %>
-
+<%= button_to "Collage", { :controller => "photos", :action => "collage"}, class: "btn btn-primary pull-right" %>
 <br />

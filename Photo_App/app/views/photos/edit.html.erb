@@ -2,12 +2,21 @@
 
 <div class="well">
 <%= form_for @photo, html: { multipart: true } do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %>
-<%= f.label "Photo" %>
-<%# f.text_field :attachment %>
-<%= image_tag(@photo.attachment_url, size: "350") %>
-<%= f.submit "Save", class: "btn btn-primary" %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	<%= f.label "Photo" %>
+	<%= image_tag(@photo.attachment_url, size: "350") %>
+	<%= f.label :tag %>
+	<%= f.text_field :tag %>
+	<%= f.submit "Save", class: "btn btn-primary" %>
+	<%= button_to "Photos", photos_path %>
+	<%= button_to "Rotate", {:controller => "photos", :action => "rotate"} %>
+	<%= button_to "Black and White", {:controller => "photos", :action => "black_and_white"} %>
+	<%= button_to "Sepia", {:controller => "photos", :action => "sepia"} %>
+	<%= button_to "Sharpen", {:controller => "photos", :action => "sharpen"} %>
+	<%= button_to "Scale", {:controller => "photos", :action => "scale"} %>
+	<%= button_to "Flip", {:controller => "photos", :action => "flip"} %>
+	<%= button_to "Charcoal", {:controller => "photos", :action => "charcoal"} %>
+	<%= button_to "Blue Shift", {:controller => "photos", :action => "blue_shift"} %>
 <% end %>
-
 </div>

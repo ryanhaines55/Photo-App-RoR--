@@ -8,9 +8,50 @@ Rails.application.routes.draw do
 
   get 'photos/destroy'
 
-  get 'photos/edit'
+ 
+  post 'photos/:id/edit' => 'photos#edit'
+
+ 
+
+
+  post 'photos/:id/edit/rotate' => 'photos#rotate'
+
+  post 'photos/:id/edit/black_and_white' => 'photos#black_and_white'
+
+  post 'photos/:id/edit/sepia' => 'photos#sepia'
+
+  post 'photos/:id/edit/sharpen' => 'photos#sharpen'
+
+  post 'photos/:id/edit/scale' => 'photos#scale'
+
+  post 'photos/:id/edit/flip' => 'photos#flip'
+
+  post 'photos/:id/edit/charcoal' => 'photos#charcoal'  
+
+  post 'photos/:id/edit/blue_shift' => 'photos#blue_shift'
+
+  post 'photos/collage' => 'photos#collage'
+
+
+  get 'photos/collage' => 'photos#collage'
+
+  get 'photos/:id/edit/flip' => 'photos#flip'
+
+  get 'photos/:id/edit/scale' => 'photos#scale'
+
+  get 'photos/:id/edit/sharpen' => 'photos#sharpen'
+
+  get 'photos/:id/edit/sepia' => 'photos#sepia'
+
+  get 'photos/:id/edit/rotate' => 'photos#rotate'
+
+  get 'photos/:id/edit/black_and_white' => 'photos#black_and_white'
+
+  get 'photos/:id/edit/charcoal' => 'photos#charcoal'  
+
+  get 'photos/:id/edit/blue_shift' => 'photos#blue_shift'
   
-resources :photos, only: [:index, :new, :create, :destroy, :edit]
+resources :photos, only: [:index, :new, :create, :destroy, :edit, :update]
 
 
   # The priority is based upon order of creation: first created -> highest priority.
