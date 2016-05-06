@@ -1,3 +1,9 @@
+<!--Edit.html.erb
+	Ryan Haines
+	Displays a form to edit a specific photo. User can edit the attributes
+	of the photo as well as add a filter to it by selecting the specific
+	button of the filter they want to add. Form was created using bootstrap-sass
+	gem.-->
 <h1>Edit photo</h1>
 
 <div class="well">
@@ -9,6 +15,9 @@
 	<%= f.label :tag %>
 	<%= f.text_field :tag %>
 	<%= f.submit "Save", class: "btn btn-primary" %>
+	
+	<%# Buttons that access the edit methods in the controller and applies it to the
+	photo in this form %>
 	<%= button_to "Photos", photos_path %>
 	<%= button_to "Rotate", {:controller => "photos", :action => "rotate"} %>
 	<%= button_to "Black and White", {:controller => "photos", :action => "black_and_white"} %>

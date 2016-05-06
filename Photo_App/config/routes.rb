@@ -1,3 +1,6 @@
+# Routes.rb
+# Ryan Haines
+# Sets up all of the routing between pages within the application
 Rails.application.routes.draw do
  
   get 'photos/index' 
@@ -9,10 +12,9 @@ Rails.application.routes.draw do
   get 'photos/destroy'
 
  
+ # Adds updated content to the application
+
   post 'photos/:id/edit' => 'photos#edit'
-
- 
-
 
   post 'photos/:id/edit/rotate' => 'photos#rotate'
 
@@ -32,6 +34,7 @@ Rails.application.routes.draw do
 
   post 'photos/collage' => 'photos#collage'
 
+# Gets the view pages for the application
 
   get 'photos/collage' => 'photos#collage'
 

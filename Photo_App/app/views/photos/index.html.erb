@@ -1,3 +1,9 @@
+<!--Index.html.erb
+	Ryan Haines
+	Holds the main table of all of the photos in the database. Photos are ordered
+	alphanumerically by thier Name property. Holds the button to make a collage, add,
+	edit, delete, and view photos. Based on tutorialspoint.com file upload tutorial. 
+	Table was generated using bootstrap-sass gem.-->
 <h1>Photos</h1>
  <%# Prints a message when a file is uploaded or deleted %>
 <% if !flash[:notice].blank? %>
@@ -35,8 +41,8 @@
 	</tbody>
 
 </table>
-
 <br /> <%# Goes to page to upload photos%>
 <%= link_to "New Photo", new_photo_path, class: "btn btn-primary" %>
+<%# Button for the collage function %>
 <%= button_to "Collage", { :controller => "photos", :action => "collage"}, class: "btn btn-primary pull-right" %>
 <br />

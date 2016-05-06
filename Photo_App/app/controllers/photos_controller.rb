@@ -1,3 +1,8 @@
+# PhotosController.rb
+# Ryan Haines
+# Controller for the photo application. Holds all of the controller functions
+# as well as image processing functions using the Rmagick Gem library.
+
 require 'rubygems'
 require 'rmagick'
 
@@ -58,6 +63,8 @@ class PhotosController < ApplicationController
   end
 
   # Editing functions taking advantage of the Rmagick gem library
+  
+  # Flip the specified image
   def flip
     @photo = Photo.find(params[:id])
     img = Magick::Image.read('public' + @photo.attachment_url).first
@@ -65,6 +72,7 @@ class PhotosController < ApplicationController
     img.write('public' + @photo.attachment_url)
   end
 
+  # Rotates the specified image by 90 degrees
   def rotate
     @photo = Photo.find(params[:id])
     img = Magick::Image.read('public' + @photo.attachment_url).first
@@ -72,6 +80,7 @@ class PhotosController < ApplicationController
     img.write('public' + @photo.attachment_url)
   end
 
+  # Changes the specified image to black and white
   def black_and_white
     @photo = Photo.find(params[:id])
     img = Magick::Image.read('public' +  @photo.attachment_url).first
@@ -79,13 +88,15 @@ class PhotosController < ApplicationController
     img.write('public' + @photo.attachment_url)
   end
 
+  # Increases the size of the specified image
   def scale
     @photo = Photo.find(params[:id])
     img = Magick::Image.read('public' + @photo.attachment_url).first
-    img = img.scale(2)
+    img = img.scale(1.5)
     img.write('public' + @photo.attachment_url)
   end
 
+  # Adds a higher contrast to the specified image
   def sharpen
     @photo = Photo.find(params[:id])
     img = Magick::Image.read('public' + @photo.attachment_url).first
@@ -93,6 +104,7 @@ class PhotosController < ApplicationController
     img.write('public' + @photo.attachment_url)
   end
 
+  # Adds a sepia tone to the specified image
   def sepia
     @photo = Photo.find(params[:id])
     img = Magick::Image.read('public' + @photo.attachment_url).first
@@ -100,6 +112,7 @@ class PhotosController < ApplicationController
     img.write('public' + @photo.attachment_url)
   end
 
+  # Adds a blue shift to the specified image
   def blue_shift
     @photo = Photo.find(params[:id])
     img = Magick::Image.read('public' + @photo.attachment_url).first
@@ -107,6 +120,7 @@ class PhotosController < ApplicationController
     img.write('public' + @photo.attachment_url)
   end
 
+  # Adds a charcoal effect to the specified image
   def charcoal
     @photo = Photo.find(params[:id])
     img = Magick::Image.read('public' + @photo.attachment_url).first
@@ -114,14 +128,19 @@ class PhotosController < ApplicationController
     img.write('public' + @photo.attachment_url)
   end
   
+  # Unfinished. Eventually will make a photo collage
   def collage
     @photos = []
     @photos = Photo.where(:tag => 'dogs').limit(3)
-    puts @photos
+    imgList = Magick::ImageList.new('public' + @photos[0].attachment_url,
+                                'public' + @photos[1].attachment_url,
+                                'public' + @photos[2].attachment_url)
+    @img = Photo.new
+    @img = imgList.append(true)
+    @img.write('public/uploads/photo/attachment/collage.jpg')
+  end   
 
-    #img = imgList.append(true)
-    #img.write('public/uploads/photo/attachment/[:id]/collage.jpg')
-  end    
+
   # Collects the fields for the photo object
   private
   	def photos_params

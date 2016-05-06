@@ -1,3 +1,6 @@
+# Photo.rb
+# Ryan Haines
+# Holds validation checks for a new upload and the uploader from Carrierwave
 class Photo < ActiveRecord::Base
 mount_uploader :attachment, AttachmentUploader # Tells rails to use this uploader for this model.
 validates :name, presence: true # Make sure the owner's name is present.
