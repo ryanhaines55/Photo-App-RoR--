@@ -1,0 +1,48 @@
+<!--Index.html.erb
+	Ryan Haines
+	Holds the main table of all of the photos in the database. Photos are ordered
+	alphanumerically by thier Name property. Holds the button to make a collage, add,
+	edit, delete, and view photos. Based on tutorialspoint.com file upload tutorial. 
+	Table was generated using bootstrap-sass gem.-->
+<h1>Photos</h1>
+ <%# Prints a message when a file is uploaded or deleted %>
+<% if !flash[:notice].blank? %>
+	<div class = "alert alert-info">
+		<%= flash[:notice] %>
+	</div>
+<% end %>
+
+<br />
+
+<br />
+         <%# Photo table. Class specified by bootstrap gem %>
+<table class = "table table-bordered table striped">
+	<thead>
+		<tr>
+			<th><%= link_to "Name", :sort => "name" %></th>
+			<th>Image (Click to show full screen)</th>
+			<th>Edit</th>
+			<th>Delete</th>
+		</tr>
+	</thead>
+
+	<tbody> <%# Fills the table from the photo database %>
+		<% @photos.each do |photo| %>
+
+			<tr>
+				<td><%= photo.name %></td>
+				<td><%= link_to image_tag(photo.attachment_url, size: "100"), 
+						photo.attachment_url %></td>
+				<td><%= link_to "Edit", edit_photo_path(photo.id)  %></td>
+				<td><%= link_to "Delete", photo, method: :delete, data: { confirm: "Are you sure you want to delete #{photo.name}?"}, class: "btn btn-danger"%></td>
+			</tr>
+
+		<% end %>
+	</tbody>
+
+</table>
+<br /> <%# Goes to page to upload photos%>
+<%= link_to "New Photo", new_photo_path, class: "btn btn-primary" %>
+<%# Button for the collage function %>
+<%= button_to "Collage", { :controller => "photos", :action => "collage"}, class: "btn btn-primary pull-right" %>
+<br />

@@ -1,0 +1,10 @@
+<!--(User)index.html.erb
+	Ryan Haines
+	*** Not finished ***-->
+<h1>Index</h1>
+
+<% @users.each do |user| %>
+    <li>
+      <%= link_to user.name, user %>
+    </li>
+<% end %>

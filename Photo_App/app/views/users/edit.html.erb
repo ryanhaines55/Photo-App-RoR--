@@ -1,0 +1,37 @@
+<!--(User)edit.html.erb
+	Ryan Haines
+	Creates a form to edit the current user. The user can update all of thier information and save. If the password
+	field is left empty then the password remains the same as it was before.-->
+<h1>Update profile</h1>
+<!-- Prints error messages if they arise -->
+<% if !@user.errors.empty? %>
+	<div class = "alert alert-error">
+
+		<ul>
+			<% @user.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+		</ul>	
+
+	</div>
+<% end %>
+
+<!-- Form for editing user -->
+<div class="well">
+	<%= form_for @user, html: { multipart: true } do |f| %>
+
+		<%= f.label :name %>
+		<%= f.text_field :name, class: 'form-control' %>
+
+		<%= f.label :email %>
+		<%= f.email_field :email, class: 'form-control' %>
+
+		<%= f.label :password %>
+		<%= f.password_field :password, class: 'form-control' %>
+
+		<%= f.label :password_confirmation %>
+		<%= f.password_field :password_confirmation , class: 'form-control' %>
+
+		<%= f.submit "Save", class: 'btn btn-primary' %>
+	<% end %>
+</div>

@@ -7,7 +7,7 @@ require 'rubygems'
 require 'rmagick'
 
 class PhotosController < ApplicationController
-  
+#before_action :logged_in_user, only: [:index, :new, :create, :destroy, :edit, :update]  
 
   # Accumulates the photos table and stores each photo into an instance of the @photos 
   # object in order by name
@@ -140,11 +140,13 @@ class PhotosController < ApplicationController
     @img.write('public/uploads/photo/attachment/collage.jpg')
   end   
 
+  
+
 
   # Collects the fields for the photo object
   private
   	def photos_params
-  		params.require(:photo).permit(:name, :attachment, :filename, :tag)
+  		params.require(:photo).permit(:name, :attachment, :tag)
   	end
 
   # Method for sorting photo table by name

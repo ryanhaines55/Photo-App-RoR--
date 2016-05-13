@@ -1,0 +1,26 @@
+<!--(Sessions) new.html.erb
+	Ryan Haines
+	Provides a form for a new session, i.e to log in to the system.-->
+<% provide(:title, "Log in") %>
+<h1>Log in</h1>
+
+<% if !flash[:notice].blank? %>
+	<div class = "alert alert-info">
+		<%= flash[:notice] %>
+	</div>
+<% end %>
+<!-- Form for login -->
+<div class="well">
+	<%= form_for(:session, url: login_path) do |f| %>
+
+		<%= f.label :email %> 
+		<%= f.email_field :email, class: 'form-control' %> 
+
+		<%= f.label :password %> 
+		<%= f.password_field :password, class: 'form-control' %> 
+
+		<%= f.submit "Log in", class: 'btn btn-primary' %> 
+	<% end %>
+
+	<p>New user? <%= link_to "Sign up now!", signup_path %></p>
+</div>

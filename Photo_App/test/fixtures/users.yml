@@ -2,12 +2,8 @@
 
 one:
   name: MyString
-  attachment: MyString
-  tag: MyString
-  user_id: 
+  email: MyString
 
 two:
   name: MyString
-  attachment: MyString
-  tag: MyString
-  user_id: 
+  email: MyString
