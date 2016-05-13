@@ -4,3 +4,30 @@ SE_Individual_Project-
 Individual project for Software Engineering Spring 2016 (TCNJ)
 
 An application that allows a user to store and edit images
+
+The application allows for a user to apply a wide variety of editing capabililty to their photos as well as a place to
+store them if they do not want to have them on thier local computer.
+
+
+System requirements:
+
+Mac OSX El Capitan 10.11.4
+Ruby 2.3.0
+Rails 4.2.6 (Have Xcode installed prior to installing rails)
+Rubygems 2.5.1
+Gems: bootstrap-sass 2.3.2, carrierwave 0.9
+
+To log on:
+
+Open Photo_App directory in terminal
+Type rails server and hit enter.
+Open up web browser and type localhost:3000.
+
+Bugs:
+
+After editing a photo sometimes the user will need to reload the Dashboard page
+for the change to show.
+
+Cannot undo actions on filters at this time.
+
+Collage function does not work properly.
