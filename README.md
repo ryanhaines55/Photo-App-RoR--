@@ -1,4 +1,3 @@
-# SE_Individual_Project-
-Individual project for Software Engineering Spring 2016 (TCNJ)
+Ruby on Rails Photo App
 
 An application that allows a user to store and edit images
