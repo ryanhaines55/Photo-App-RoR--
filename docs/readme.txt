@@ -1,6 +1,6 @@
 Ryan Haines
 
-Github repo url: https://github.com/ryanhaines55/SE_Individual_Project-.git
+Github repo url: https://github.com/ryanhaines55/Photo-App-RoR--.git
 
 System requirements:
 
